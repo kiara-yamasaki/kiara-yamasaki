@@ -108,6 +108,7 @@
 <body>
 
 
+
 <div class="container" id="main-container">
     <h1>太郎と花子のディナーデート</h1>
     <p id="story"></p>
@@ -123,15 +124,12 @@
 
 
 
-
-
-
-
-
 <div class="container" id="hint-container" style="display: none;">
     <h1>太郎は果たして本当に羽振りが良かったのだろうか...？</h1>
     <button class="back-button" onclick="goBack()">初期画面へ戻る</button>
 </div>
+
+
 
 <div class="container" id="solve1" style="display: none;">
     <h1>Q1.太郎は花子に対してどんな気持ち？</h1>
@@ -205,13 +203,6 @@
 
 
 
-
-
-
-
-
-
-
 <div class="container" id="solve6_1" style="display: none;">
     <h1>まじめに答えていますか。</h1>
     <button class="back-button" onclick="goBackToMainFromSolve()">初期画面へ戻る</button>
@@ -246,22 +237,149 @@
 
 
 
-
-
 <div class="container" id="taro-info" style="display: none;">
     <h1>太郎は、、、</h1>
-    <button class="button" onclick="showTaroDetails()">太郎</button><br>
-    <button class="button" onclick="showMoneyDetails()">金持ち</button><br>
+    <button class="button" onclick="showTaroDetails1()">一人暮らし</button><br>
+    <button class="button" onclick="showTaroDetails2()">金持ち</button><br>
+    <button class="button" onclick="showTaroDetails3()">外国籍</button><br>
+    <button class="button" onclick="showTaroDetails4()">太っている</button><br>
+    <button class="button" onclick="showTaroDetails5()">運転が荒い</button><br>
     <button class="back-button" onclick="goBack()">戻る</button>
 </div>
 
-<div class="container" id="money-info" style="display: none;">
-    <h1>太郎は金持ち？<br><br><br>いいえ。</h1>
-    <button class="back-button" onclick="goBackToMoneyInfo()">戻る</button>
+<div class="container" id="taroDetails1" style="display: none;">
+    <h1>太郎は一人暮らし？<br><br><span style="font-size: 20px;">はい。</span></h1>
+    <button class="back-button" onclick="goBackFromTaroDetails1()">戻る</button>
+</div>
+
+<div class="container" id="taroDetails2" style="display: none;">
+    <h1>太郎はお金持ち？<br><br><span style="color: red; font-size: 40px;">素晴らしい質問です。</span><br><span style="font-size: 20px;">いいえ。</span><span style="font-size: 20px;">そこまでお金持ちではなかったようです。</span></h1>
+    <button class="back-button" onclick="goBackFromTaroDetails2()">戻る</button>
+</div>
+
+<div class="container" id="taroDetails3" style="display: none;">
+    <h1>太郎は外国籍？<br><br><span style="font-size: 20px;">いいえ。<br>純日本人です。</span></h1>
+    <button class="back-button" onclick="goBackFromTaroDetails3()">戻る</button>
+</div>
+
+<div class="container" id="taroDetails4" style="display: none;">
+    <h1>太郎は太っている？<br><br><span style="font-size: 20px;">いいえ。<br>スリム体型でした。</span></h1>
+    <button class="back-button" onclick="goBackFromTaroDetails4()">戻る</button>
+</div>
+
+<div class="container" id="taroDetails5" style="display: none;">
+    <h1>太郎は運転が荒い？<br><br><span style="font-size: 20px;">いいえ。<br>安全運転を心がけていたようです。</span></h1>
+    <button class="back-button" onclick="goBackFromTaroDetails5()">戻る</button>
+</div>
+
+
+<div class="container" id="hanako-info" style="display: none;">
+    <h1>花子は、、、</h1>
+    <button class="button" onclick="showHanakoDetails1()">ひねくれもの</button><br>
+    <button class="button" onclick="showHanakoDetails2()">寒がり</button><br>
+    <button class="button" onclick="showHanakoDetails3()">既婚者</button><br>
+    <button class="button" onclick="showHanakoDetails4()">身体が不自由</button><br>
+    <button class="button" onclick="showHanakoDetails5()">不潔</button><br>
+    <button class="back-button" onclick="goBack()">戻る</button>
+</div>
+
+<div class="container" id="hanakoDetails1" style="display: none;">
+    <h1>花子はひねくれもの？<br><br><span style="font-size: 20px;">いいえ。<br>素直な女性です。</span></h1>
+    <button class="back-button" onclick="goBackFromHanakoDetails1()">戻る</button>
+</div>
+
+<div class="container" id="hanakoDetails2" style="display: none;">
+    <h1>花子は寒がり？<br><br><span style="font-size: 20px;">いいえ。</span></h1>
+    <button class="back-button" onclick="goBackFromHanakoDetails2()">戻る</button>
+</div>
+
+<div class="container" id="hanakoDetails3" style="display: none;">
+    <h1>花子は既婚者？<br><br><span style="font-size: 20px;">いいえ。<br>太郎のことを良いと思っていました。</span></h1>
+    <button class="back-button" onclick="goBackFromHanakoDetails3()">戻る</button>
+</div>
+
+<div class="container" id="hanakoDetails4" style="display: none;">
+    <h1>花子は身体が不自由？<br><br><span style="font-size: 20px;">いいえ。<br>いたって健康でした。</span></h1>
+    <button class="back-button" onclick="goBackFromHanakoDetails4()">戻る</button>
+</div>
+
+<div class="container" id="hanakoDetails5" style="display: none;">
+    <h1>花子は不潔？<br><br><span style="font-size: 20px;">いいえ。</span></h1>
+    <button class="back-button" onclick="goBackFromHanakoDetails5()">戻る</button>
 </div>
 
 
 
+<div class="container" id="dinner-info" style="display: none;">
+    <h1>ディナーは、、、</h1>
+    <button class="button" onclick="showDinnerDetails1()">フレンチ</button><br>
+    <button class="button" onclick="showDinnerDetails2()">量が多い</button><br>
+    <button class="button" onclick="showDinnerDetails3()">苦手な食べ物</button><br>
+    <button class="button" onclick="showDinnerDetails4()">デザート</button><br>
+    <button class="button" onclick="showDinnerDetails5()">接客</button><br>
+    <button class="back-button" onclick="goBack()">戻る</button>
+</div>
+
+<div class="container" id="dinnerDetails1" style="display: none;">
+    <h1>ディナーはフレンチだった？<br><br><span style="font-size: 20px;">はい。<br>２人とも非常に美味しくいただいたようです。</span></h1>
+    <button class="back-button" onclick="goBackFromDinnerDetails1()">戻る</button>
+</div>
+
+<div class="container" id="dinnerDetails2" style="display: none;">
+    <h1>ディナーは量が多かった？<br><br><span style="font-size: 20px;">いいえ。<br>ちょうどよい量でした。</span></h1>
+    <button class="back-button" onclick="goBackFromDinnerDetails2()">戻る</button>
+</div>
+
+<div class="container" id="dinnerDetails3" style="display: none;">
+    <h1>ディナーは苦手な食べ物が出た？<br><br><span style="font-size: 20px;">いいえ。<br>２人とも残さずいただいたようです。</span></h1>
+    <button class="back-button" onclick="goBackFromDinnerDetails3()">戻る</button>
+</div>
+
+<div class="container" id="dinnerDetails4" style="display: none;">
+    <h1>ディナーはデザートが出た？<br><br><span style="font-size: 20px;">はい。<br>食後に振る舞われました。</span></h1>
+    <button class="back-button" onclick="goBackFromDinnerDetails4()">戻る</button>
+</div>
+
+<div class="container" id="dinnerDetails5" style="display: none;">
+    <h1>ディナーは接客が悪かった？<br><br><span style="font-size: 20px;">いいえ。<br>素晴らしい接客でした。</span></h1>
+    <button class="back-button" onclick="goBackFromDinnerDetails5()">戻る</button>
+</div>
+
+
+<div class="container" id="suit-info" style="display: none;">
+    <h1>スーツは、、、</h1>
+    <button class="button" onclick="showSuitDetails1()">派手</button><br>
+    <button class="button" onclick="showSuitDetails2()">サイズミス</button><br>
+    <button class="button" onclick="showSuitDetails3()">汚れ</button><br>
+    <button class="button" onclick="showSuitDetails4()">コート</button><br>
+    <button class="button" onclick="showSuitDetails5()">スニーカー</button><br>
+    <button class="back-button" onclick="goBack()">戻る</button>
+</div>
+
+<div class="container" id="suitDetails1" style="display: none;">
+    <h1>スーツは派手だった？<br><br><span style="font-size: 20px;">はい。<br>太郎はかなり気合いを入れていたようです。</span></h1>
+    <button class="back-button" onclick="goBackFromSuitDetails1()">戻る</button>
+</div>
+
+<div class="container" id="suitDetails2" style="display: none;">
+    <h1>スーツはサイズミスをしていた？<br><br><span style="font-size: 20px;">いいえ。<br>ビシッと着こなしていました。</span></h1>
+    <button class="back-button" onclick="goBackFromSuitDetails2()">戻る</button>
+</div>
+
+<div class="container" id="suitDetails3" style="display: none;">
+    <h1>スーツには汚れが付着していた？<br><br><span style="font-size: 20px;">いいえ。<br>非常に綺麗な状態でした。</span></h1>
+    <button class="back-button" onclick="goBackFromSuitDetails3()">戻る</button>
+</div>
+
+<div class="container" id="suitDetails4" style="display: none;">
+    <h1>スーツはコートを着ていた？<br><br><span style="font-size: 20px;">はい。<br>とても寒かったようです。</span></h1>
+    <button class="back-button" onclick="goBackFromSuitDetails4()">戻る</button>
+</div>
+
+<div class="container" id="suitDetails5" style="display: none;">
+    <h1>スーツにスニーカーを合わせていた？<br><br><span style="font-size: 20px;">いいえ。<br>しっかり革靴を履いていました。</span></h1>
+    <button class="back-button" onclick="goBackFromSuitDetails5()">戻る</button>
+</div>
 
 
 
@@ -279,10 +397,7 @@
 
 
 
-
 <script>
-
-
 
 let N = 0;
 let M = 0;
@@ -295,14 +410,20 @@ let D = 0;
 let E = 0;
 
     function showStory() {
-        const story = `<button class="button" onclick="showTaroInfo()">太郎</button>は<button class="button" onclick="showHanakoInfo()">花子</button>と豪華なディナーの予定だった。太郎はビシッとスーツを着こなし、<button class="button" onclick="showCarInfo()">高級車</button>をブイブイ言わせて花子を迎えに行き、エスコートして助手席に乗せた。<br>高級レストランでは巧みな話術で盛り上げ、会計は当然太郎の奢り。誰もが完璧なディナーデートになると思った。しかし、２人がレストランを出るや否や、<br>あるものが花子の目に入り、デートが台無しになってしまった。<br>それはいったいなに？`;
+        const story = `<button class="button" onclick="showTaroInfo()">太郎</button>は<button class="button" onclick="showHanakoInfo()">花子</button>と
+        豪華な<button class="button" onclick="showDinnerInfo()">ディナー</button>の予定だった。
+        <button class="button" onclick="showTaroInfo()">太郎</button>はビシッと<button class="button" onclick="showSuitInfo()">スーツ</button>を着こなし、
+        <button class="button" onclick="showCarInfo()">高級車</button>をブイブイ言わせて花子を迎えに行き、
+        エスコートして助手席に乗せた。<br>高級レストランでは巧みな話術で盛り上げ、会計は当然<button class="button" onclick="showTaroInfo()">太郎</button>の奢り。
+        誰もが完璧な<button class="button" onclick="showDinnerInfo()">ディナー</button>デートになると思った。しかし、２人がレストランを出るや否や、<br>
+        あるものが<button class="button" onclick="showHanakoInfo()">花子</button>の目に入り、デートが台無しになってしまった。<br>それはいったいなに？`;
         
         document.getElementById('story').innerHTML = story;
         document.getElementById('n-display').innerText = N; // N の値を表示
         document.getElementById('m-display').innerText = M; // M の値を表示
 //        document.getElementById('answer-button').style.display = 'block'; // 解説ボタンを表示
         document.getElementById('wrong-button').style.display = 'block'; // 更新ボタンを表示
-        document.getElementById('hint-button').style.display = 'block'; // ヒントボタンを表示
+//        document.getElementById('hint-button').style.display = 'block'; // ヒントボタンを表示
         document.getElementById('solve-button').style.display = 'block'; // 回答するボタンを表示
         document.getElementById('back-button').style.display = 'block'; // 戻るボタンを表示
         document.getElementById('story-button').style.display = 'none'; // ストーリーを表示ボタンを隠す
@@ -329,16 +450,10 @@ let E = 0;
 
 
 
-
-
-
-
-
     function solveInfo1() {
         document.getElementById('main-container').style.display = 'none';
         document.getElementById('solve1').style.display = 'block';
     }
-
 
     function solveInfo2() {
         document.getElementById('solve1').style.display = 'none';
@@ -424,32 +539,130 @@ let E = 0;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     function showTaroInfo() {
         document.getElementById('main-container').style.display = 'none';
         document.getElementById('taro-info').style.display = 'block';
     }
 
-    function showMoneyDetails() {
+    function showTaroDetails1() {
         document.getElementById('taro-info').style.display = 'none';
-        document.getElementById('money-info').style.display = 'block';
+        document.getElementById('taroDetails1').style.display = 'block';
+    }
+
+    function showTaroDetails2() {
+        document.getElementById('taro-info').style.display = 'none';
+        document.getElementById('taroDetails2').style.display = 'block';
+    }
+
+    function showTaroDetails3() {
+        document.getElementById('taro-info').style.display = 'none';
+        document.getElementById('taroDetails3').style.display = 'block';
+    }
+
+    function showTaroDetails4() {
+        document.getElementById('taro-info').style.display = 'none';
+        document.getElementById('taroDetails4').style.display = 'block';
+    }
+
+    function showTaroDetails5() {
+        document.getElementById('taro-info').style.display = 'none';
+        document.getElementById('taroDetails5').style.display = 'block';
+    }
+
+
+
+    function showHanakoInfo() {
+        document.getElementById('main-container').style.display = 'none';
+        document.getElementById('hanako-info').style.display = 'block';
+    }
+
+    function showHanakoDetails1() {
+        document.getElementById('hanako-info').style.display = 'none';
+        document.getElementById('hanakoDetails1').style.display = 'block';
+    }
+
+    function showHanakoDetails2() {
+        document.getElementById('hanako-info').style.display = 'none';
+        document.getElementById('hanakoDetails2').style.display = 'block';
+    }
+
+    function showHanakoDetails3() {
+        document.getElementById('hanako-info').style.display = 'none';
+        document.getElementById('hanakoDetails3').style.display = 'block';
+    }
+
+    function showHanakoDetails4() {
+        document.getElementById('hanako-info').style.display = 'none';
+        document.getElementById('hanakoDetails4').style.display = 'block';
+    }
+
+    function showHanakoDetails5() {
+        document.getElementById('hanako-info').style.display = 'none';
+        document.getElementById('hanakoDetails5').style.display = 'block';
+    }
+
+
+
+    function showDinnerInfo() {
+        document.getElementById('main-container').style.display = 'none';
+        document.getElementById('dinner-info').style.display = 'block';
+    }
+
+    function showDinnerDetails1() {
+        document.getElementById('dinner-info').style.display = 'none';
+        document.getElementById('dinnerDetails1').style.display = 'block';
+    }
+
+    function showDinnerDetails2() {
+        document.getElementById('dinner-info').style.display = 'none';
+        document.getElementById('dinnerDetails2').style.display = 'block';
+    }
+
+    function showDinnerDetails3() {
+        document.getElementById('dinner-info').style.display = 'none';
+        document.getElementById('dinnerDetails3').style.display = 'block';
+    }
+
+    function showDinnerDetails4() {
+        document.getElementById('dinner-info').style.display = 'none';
+        document.getElementById('dinnerDetails4').style.display = 'block';
+    }
+
+    function showDinnerDetails5() {
+        document.getElementById('dinner-info').style.display = 'none';
+        document.getElementById('dinnerDetails5').style.display = 'block';
+    }
+
+
+
+    function showSuitInfo() {
+        document.getElementById('main-container').style.display = 'none';
+        document.getElementById('suit-info').style.display = 'block';
+    }
+
+    function showSuitDetails1() {
+        document.getElementById('suit-info').style.display = 'none';
+        document.getElementById('suitDetails1').style.display = 'block';
+    }
+
+    function showSuitDetails2() {
+        document.getElementById('suit-info').style.display = 'none';
+        document.getElementById('suitDetails2').style.display = 'block';
+    }
+
+    function showSuitDetails3() {
+        document.getElementById('suit-info').style.display = 'none';
+        document.getElementById('suitDetails3').style.display = 'block';
+    }
+
+    function showSuitDetails4() {
+        document.getElementById('suit-info').style.display = 'none';
+        document.getElementById('suitDetails4').style.display = 'block';
+    }
+
+    function showSuitDetails5() {
+        document.getElementById('suit-info').style.display = 'none';
+        document.getElementById('suitDetails5').style.display = 'block';
     }
 
 
@@ -472,25 +685,6 @@ let E = 0;
 
 
 
-
-
-
-
-
-
-
-
-    function goBack() {
-        A = 0;
-        document.getElementById('hint-container').style.display = 'none';
-        document.getElementById('answer').style.display = 'none';
-
-        document.getElementById('solve1').style.display = 'none';
-
-        document.getElementById('taro-info').style.display = 'none';
-        document.getElementById('car-info').style.display = 'none';
-        document.getElementById('main-container').style.display = 'block';
-    }
 
     function goBackToSolve1() {
         A = 0;
@@ -524,8 +718,6 @@ let E = 0;
 
 
 
-
-
     function goBackToMainFromSolve() {
         X = 0;
         A = 0;
@@ -544,26 +736,134 @@ let E = 0;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    function goBackToMoneyInfo() {
+    function goBackFromTaroDetails1() {
         N += 1;
-        document.getElementById('money-info').style.display = 'none';
+        document.getElementById('taroDetails1').style.display = 'none';
         document.getElementById('taro-info').style.display = 'block';
     }
+
+    function goBackFromTaroDetails2() {
+        N += 1;
+        document.getElementById('taroDetails2').style.display = 'none';
+        document.getElementById('taro-info').style.display = 'block';
+    }
+
+    function goBackFromTaroDetails3() {
+        N += 1;
+        document.getElementById('taroDetails3').style.display = 'none';
+        document.getElementById('taro-info').style.display = 'block';
+    }
+
+    function goBackFromTaroDetails4() {
+        N += 1;
+        document.getElementById('taroDetails4').style.display = 'none';
+        document.getElementById('taro-info').style.display = 'block';
+    }
+
+    function goBackFromTaroDetails5() {
+        N += 1;
+        document.getElementById('taroDetails5').style.display = 'none';
+        document.getElementById('taro-info').style.display = 'block';
+    }
+
+
+
+    function goBackFromHanakoDetails1() {
+        N += 1;
+        document.getElementById('hanakoDetails1').style.display = 'none';
+        document.getElementById('hanako-info').style.display = 'block';
+    }
+
+    function goBackFromHanakoDetails2() {
+        N += 1;
+        document.getElementById('hanakoDetails2').style.display = 'none';
+        document.getElementById('hanako-info').style.display = 'block';
+    }
+
+    function goBackFromHanakoDetails3() {
+        N += 1;
+        document.getElementById('hanakoDetails3').style.display = 'none';
+        document.getElementById('hanako-info').style.display = 'block';
+    }
+
+    function goBackFromHanakoDetails4() {
+        N += 1;
+        document.getElementById('hanakoDetails4').style.display = 'none';
+        document.getElementById('hanako-info').style.display = 'block';
+    }
+
+    function goBackFromHanakoDetails5() {
+        N += 1;
+        document.getElementById('hanakoDetails5').style.display = 'none';
+        document.getElementById('hanako-info').style.display = 'block';
+    }
+
+
+    function goBackFromDinnerDetails1() {
+        N += 1;
+        document.getElementById('dinnerDetails1').style.display = 'none';
+        document.getElementById('dinner-info').style.display = 'block';
+    }
+
+    function goBackFromDinnerDetails2() {
+        N += 1;
+        document.getElementById('dinnerDetails2').style.display = 'none';
+        document.getElementById('dinner-info').style.display = 'block';
+    }
+
+    function goBackFromDinnerDetails3() {
+        N += 1;
+        document.getElementById('dinnerDetails3').style.display = 'none';
+        document.getElementById('dinner-info').style.display = 'block';
+    }
+
+    function goBackFromDinnerDetails4() {
+        N += 1;
+        document.getElementById('dinnerDetails4').style.display = 'none';
+        document.getElementById('dinner-info').style.display = 'block';
+    }
+
+    function goBackFromDinnerDetails5() {
+        N += 1;
+        document.getElementById('dinnerDetails5').style.display = 'none';
+        document.getElementById('dinner-info').style.display = 'block';
+    }
+
+
+
+    function goBackFromSuitDetails1() {
+        N += 1;
+        document.getElementById('suitDetails1').style.display = 'none';
+        document.getElementById('suit-info').style.display = 'block';
+    }
+
+    function goBackFromSuitDetails2() {
+        N += 1;
+        document.getElementById('suitDetails2').style.display = 'none';
+        document.getElementById('suit-info').style.display = 'block';
+    }
+
+    function goBackFromSuitDetails3() {
+        N += 1;
+        document.getElementById('suitDetails3').style.display = 'none';
+        document.getElementById('suit-info').style.display = 'block';
+    }
+
+    function goBackFromSuitDetails4() {
+        N += 1;
+        document.getElementById('suitDetails4').style.display = 'none';
+        document.getElementById('suit-info').style.display = 'block';
+    }
+
+    function goBackFromSuitDetails5() {
+        N += 1;
+        document.getElementById('suitDetails5').style.display = 'none';
+        document.getElementById('suit-info').style.display = 'block';
+    }
+
+
+
+
 
 
     function goBackToCar1Info() {
@@ -575,12 +875,21 @@ let E = 0;
 
 
 
+    function goBack() {
+        A = 0;
+        document.getElementById('hint-container').style.display = 'none';
+        document.getElementById('answer').style.display = 'none';
+        document.getElementById('solve1').style.display = 'none';
+
+        document.getElementById('taro-info').style.display = 'none';
+        document.getElementById('hanako-info').style.display = 'none';
+        document.getElementById('dinner-info').style.display = 'none';
+        document.getElementById('suit-info').style.display = 'none';
 
 
-
-
-
-
+        document.getElementById('car-info').style.display = 'none';
+        document.getElementById('main-container').style.display = 'block';
+    }
 
 
 
