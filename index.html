@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>太郎と花子のディナーデート</title>
+    <title>ディナーが台無し</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -42,7 +42,6 @@
         .story-button:hover {
             background-color: #45a049; /* ホバー時の色 */
         }
-
         .answer-button {
             background-color: #ff69b4; /* 緑色の背景 */
             color: white; /* 白い文字 */
@@ -56,9 +55,8 @@
         .answer-button:hover {
             background-color: #ff1493; /* ホバー時の色 */
         }
-
         .wrong-button {
-            background-color: #00ff00; /* 緑色の背景 */
+            background-color: #00bfff; /* 緑色の背景 */
             color: white; /* 白い文字 */
             padding: 10px 20px; /* パディングを追加 */
             border: none; 
@@ -68,10 +66,8 @@
             margin-top: 20px; /* 上部にマージンを追加 */
         }
         .wrong-button:hover {
-            background-color: #32cd32; /* ホバー時の色 */
+            background-color: #1e90ff; /* ホバー時の色 */
         }
-
-
         .back-button {
             background-color: #a9a9a9; /* 緑色の背景 */
             color: white; /* 白い文字 */
@@ -85,7 +81,6 @@
         .back-button:hover {
             background-color: #808080; /* ホバー時の色 */
         }
-
         .hint-button {
             background-color: #ffa500; /* 緑色の背景 */
             color: white; /* 白い文字 */
@@ -99,10 +94,6 @@
         .hint-button:hover {
             background-color: #ff8c00; /* ホバー時の色 */
         }
-
-
-
-
     </style>
 </head>
 <body>
@@ -110,13 +101,13 @@
 
 
 <div class="container" id="main-container">
-    <h1>太郎と花子のディナーデート</h1>
+    <h1><span style="font-size: 20px;">No.1</span><br>ディナーが台無し</h1>
     <p id="story"></p>
     <button class="story-button" id="story-button" onclick="showStory()">ストーリーを表示</button>
     <p>質問した回数: <span id="n-display" class="n-value" style="font-size: 30px; color: green;">0</span></p> <!-- Nの値を表示する要素 -->
     <p>間違えた回数: <span id="m-display" class="m-value" style="font-size: 30px; color: green;">0</span></p> <!-- Mの値を表示する要素 -->
     <button class="answer-button" id="answer-button" style="display: none;" onclick="answerInfo()">解説</button>
-    <button class="wrong-button" id="wrong-button" style="display: none;" onclick="showStory()">更新ボタン</button>
+    <button class="wrong-button" id="wrong-button" style="display: none;" onclick="showStory()">更新ボタン(質問回数、間違い回数の更新)</button>
     <button class="story-button" id="solve-button" style="display: none;" onclick="solveInfo1()">回答する</button>
     <button class="hint-button" id="hint-button" style="display: none;" onclick="hintInfo()">ヒント</button>
     <button class="back-button" id="back-button" style="display: none;" onclick="goBackToMain()">戻る</button>
@@ -240,7 +231,7 @@
 <div class="container" id="taro-info" style="display: none;">
     <h1>太郎は、、、</h1>
     <button class="button" onclick="showTaroDetails1()">一人暮らし</button><br>
-    <button class="button" onclick="showTaroDetails1()">金持ち</button><br>
+    <button class="button" onclick="showTaroDetails2()">金持ち</button><br>
     <button class="button" onclick="showTaroDetails3()">外国籍</button><br>
     <button class="button" onclick="showTaroDetails4()">太っている</button><br>
     <button class="button" onclick="showTaroDetails5()">運転が荒い</button><br>
@@ -271,6 +262,7 @@
     <h1>太郎は運転が荒い？<br><br><span style="font-size: 20px;">いいえ。<br>安全運転を心がけていたようです。</span></h1>
     <button class="back-button" onclick="goBackFromTaroDetails5()">戻る</button>
 </div>
+
 
 
 <div class="container" id="hanako-info" style="display: none;">
@@ -346,6 +338,7 @@
 </div>
 
 
+
 <div class="container" id="suit-info" style="display: none;">
     <h1>スーツは、、、</h1>
     <button class="button" onclick="showSuitDetails1()">派手</button><br>
@@ -385,14 +378,296 @@
 
 <div class="container" id="car-info" style="display: none;">
     <h1>高級車は、、、</h1>
-    <button class="button" onclick="showCar1Details()">借り物</button><br>
-    <button class="button" onclick="showCar2Details()">オープンカー</button><br>
+    <button class="button" onclick="showCarDetails1()">オープンカー</button><br>
+    <button class="button" onclick="showCarDetails2()">スピード違反</button><br>
+    <button class="button" onclick="showCarDetails3()">窮屈</button><br>
+    <button class="button" onclick="showCarDetails4()">借り物</button><br>
+    <button class="button" onclick="showCarDetails5()">音楽</button><br>
     <button class="back-button" onclick="goBack()">戻る</button>
 </div>
 
-<div class="container" id="car1-info" style="display: none;">
-    <h1>高級車は借り物？<br><br><br><span style="font-size: 26px; color: #ff6347;">素晴らしい質問です。</span><span style="font-size: 16px;"><br>はい。太郎はレンタカーを利用していました。</span></h1>
-    <button class="back-button" onclick="goBackToCar1Info()">戻る</button>
+<div class="container" id="carDetails1" style="display: none;">
+    <h1>高級車はオープンカーだった？<br><br><span style="font-size: 20px;">はい。<br>派手な色をしており、一目で分かる高級車でした。</span></h1>
+    <button class="back-button" onclick="goBackFromCarDetails1()">戻る</button>
+</div>
+
+<div class="container" id="carDetails2" style="display: none;">
+    <h1>高級車はスピード違反をしていた？<br><br><span style="font-size: 20px;">いいえ。<br>それなりには安全運転をしていました。</span></h1>
+    <button class="back-button" onclick="goBackFromCarDetails2()">戻る</button>
+</div>
+
+<div class="container" id="carDetails3" style="display: none;">
+    <h1>高級車は窮屈だった？<br><br><span style="font-size: 20px;">はい。<br>やや狭めのつくりだったようです。</span></h1>
+    <button class="back-button" onclick="goBackFromCarDetails3()">戻る</button>
+</div>
+
+<div class="container" id="carDetails4" style="display: none;">
+    <h1>高級車は借り物だった？<br><br><span style="color: red; font-size: 40px;">素晴らしい質問です。</span><br><span style="font-size: 20px;">はい。</span><span style="font-size: 20px;">なんとレンタカーでした！</span></h1>
+    <button class="back-button" onclick="goBackFromCarDetails4()">戻る</button>
+</div>
+
+<div class="container" id="carDetails5" style="display: none;">
+    <h1>車内で音楽を流していた？<br><br><span style="font-size: 20px;">はい。<br>軽快な音楽が流れていました。</span></h1>
+    <button class="back-button" onclick="goBackFromCarDetails5()">戻る</button>
+</div>
+
+
+
+<div class="container" id="escort-info" style="display: none;">
+    <h1>エスコートは、、、</h1>
+    <button class="button" onclick="showEscortDetails1()">丁寧</button><br>
+    <button class="button" onclick="showEscortDetails2()">ボディタッチ</button><br>
+    <button class="button" onclick="showEscortDetails3()">車までの距離</button><br>
+    <button class="button" onclick="showEscortDetails4()">歩く速さ</button><br>
+    <button class="button" onclick="showEscortDetails5()">たどたどしい</button><br>
+    <button class="back-button" onclick="goBack()">戻る</button>
+</div>
+
+<div class="container" id="escortDetails1" style="display: none;">
+    <h1>エスコートは丁寧だった？<br><br><span style="color: orange; font-size: 40px;">良い質問です。</span><br><span style="font-size: 20px;">はい。</span><span style="font-size: 20px;">助手席に座らせるまで丁寧に付き添っていました。</span></h1>
+    <button class="back-button" onclick="goBackFromEscortDetails1()">戻る</button>
+</div>
+
+<div class="container" id="escortDetails2" style="display: none;">
+    <h1>エスコートは<br>ボディタッチが激しかった？<br><br><span style="font-size: 20px;">いいえ。<br>紳士的なエスコートでした。</span></h1>
+    <button class="back-button" onclick="goBackFromEscortDetails2()">戻る</button>
+</div>
+
+<div class="container" id="escortDetails3" style="display: none;">
+    <h1>エスコートは車までの距離が長かった？<br><br><span style="font-size: 20px;">いいえ。<br>ほんの10mも無かったでしょう。</span></h1>
+    <button class="back-button" onclick="goBackFromEscortDetails3()">戻る</button>
+</div>
+
+<div class="container" id="escortDetails4" style="display: none;">
+    <h1>エスコートは歩くのが速かった？<br><br><span style="font-size: 20px;">いいえ。<br>太郎は花子の歩く速さに合わせていました。</span></h1>
+    <button class="back-button" onclick="goBackFromEscortDetails4()">戻る</button>
+</div>
+
+<div class="container" id="escortDetails5" style="display: none;">
+    <h1>エスコートはたどたどしかった？<br><br><span style="font-size: 20px;">いいえ。<br>とてもスムーズなエスコートでした。</span></h1>
+    <button class="back-button" onclick="goBackFromEscortDetails5()">戻る</button>
+</div>
+
+
+
+<div class="container" id="joshu-info" style="display: none;">
+    <h1>助手席は、、、</h1>
+    <button class="button" onclick="showJoshuDetails1()">狭い</button><br>
+    <button class="button" onclick="showJoshuDetails2()">汚い</button><br>
+    <button class="button" onclick="showJoshuDetails3()">シートベルト</button><br>
+    <button class="button" onclick="showJoshuDetails4()">土足禁止</button><br>
+    <button class="button" onclick="showJoshuDetails5()">くさい</button><br>
+    <button class="back-button" onclick="goBack()">戻る</button>
+</div>
+
+<div class="container" id="joshuDetails1" style="display: none;">
+    <h1>助手席は狭かった？<br><br><span style="font-size: 20px;">はい。<br>車高が低いタイプの高級車だったようですね。</span></h1>
+    <button class="back-button" onclick="goBackFromJoshuDetails1()">戻る</button>
+</div>
+
+<div class="container" id="joshuDetails2" style="display: none;">
+    <h1>助手席は汚かった？<br><br><span style="font-size: 20px;">いいえ。<br>清潔に保たれていました。</span></h1>
+    <button class="back-button" onclick="goBackFromJoshuDetails2()">戻る</button>
+</div>
+
+<div class="container" id="joshuDetails3" style="display: none;">
+    <h1>助手席はシートベルトが無かった？<br><br><span style="font-size: 20px;">いいえ。<br>きちんとありました。</span></h1>
+    <button class="back-button" onclick="goBackFromJoshuDetails3()">戻る</button>
+</div>
+
+<div class="container" id="joshuDetails4" style="display: none;">
+    <h1>助手席は土足禁止だった？<br><br><span style="font-size: 20px;">いいえ。<br>花子は靴を脱がなくて済んだようです。</span></h1>
+    <button class="back-button" onclick="goBackFromJoshuDetails4()">戻る</button>
+</div>
+
+<div class="container" id="joshuDetails5" style="display: none;">
+    <h1>助手席はくさかった？<br><br><span style="font-size: 20px;">いいえ。<br>まったくもってくさくありませんでした。</span></h1>
+    <button class="back-button" onclick="goBackFromJoshuDetails5()">戻る</button>
+</div>
+
+
+
+<div class="container" id="rest-info" style="display: none;">
+    <h1>レストランは、、、</h1>
+    <button class="button" onclick="showRestDetails1()">駐車場付き</button><br>
+    <button class="button" onclick="showRestDetails2()">海辺</button><br>
+    <button class="button" onclick="showRestDetails3()">テイクアウト</button><br>
+    <button class="button" onclick="showRestDetails4()">バリアフリー</button><br>
+    <button class="button" onclick="showRestDetails5()">混雑</button><br>
+    <button class="back-button" onclick="goBack()">戻る</button>
+</div>
+
+<div class="container" id="restDetails1" style="display: none;">
+    <h1>レストランは駐車場付きだった？<br><br><span style="color: orange; font-size: 40px;">良い質問です。</span><br><span style="font-size: 20px;">はい。</span><span style="font-size: 20px;">太郎はレストランの駐車場に車を停めていました。</span></h1>
+    <button class="back-button" onclick="goBackFromRestDetails1()">戻る</button>
+</div>
+
+<div class="container" id="restDetails2" style="display: none;">
+    <h1>レストランは海辺にあった？<br><br><span style="font-size: 20px;">いいえ。<br>街中にありました。</span></h1>
+    <button class="back-button" onclick="goBackFromRestDetails2()">戻る</button>
+</div>
+
+<div class="container" id="restDetails3" style="display: none;">
+    <h1>レストランでテイクアウトを利用した？<br><br><span style="font-size: 20px;">いいえ。<br>テイクアウトサービスは無かったようです。</span></h1>
+    <button class="back-button" onclick="goBackFromRestDetails3()">戻る</button>
+</div>
+
+<div class="container" id="restDetails4" style="display: none;">
+    <h1>レストランはバリアフリーだった？<br><br><span style="font-size: 20px;">いいえ。<br>特にそういった配慮はありませんでした。</span></h1>
+    <button class="back-button" onclick="goBackFromRestDetails4()">戻る</button>
+</div>
+
+<div class="container" id="restDetails5" style="display: none;">
+    <h1>レストランは混雑していた？<br><br><span style="font-size: 20px;">はい。<br>人気店だったようですね。</span></h1>
+    <button class="back-button" onclick="goBackFromRestDetails5()">戻る</button>
+</div>
+
+
+
+<div class="container" id="waju-info" style="display: none;">
+    <h1>話術は、、、</h1>
+    <button class="button" onclick="showWajuDetails1()">面白くない</button><br>
+    <button class="button" onclick="showWajuDetails2()">怖い話</button><br>
+    <button class="button" onclick="showWajuDetails3()">自慢話</button><br>
+    <button class="button" onclick="showWajuDetails4()">仕事の話</button><br>
+    <button class="button" onclick="showWajuDetails5()">愚痴</button><br>
+    <button class="back-button" onclick="goBack()">戻る</button>
+</div>
+
+<div class="container" id="wajuDetails1" style="display: none;">
+    <h1>太郎の話は面白くなかった？<br><br><span style="font-size: 20px;">いいえ。<br>花子も会話を楽しんでいました。</span></h1>
+    <button class="back-button" onclick="goBackFromWajuDetails1()">戻る</button>
+</div>
+
+<div class="container" id="wajuDetails2" style="display: none;">
+    <h1>太郎は怖い話ばかりした？<br><br><span style="font-size: 20px;">いいえ。<br>まったくしていません。</span></h1>
+    <button class="back-button" onclick="goBackFromWajuDetails2()">戻る</button>
+</div>
+
+<div class="container" id="wajuDetails3" style="display: none;">
+    <h1>太郎は自慢話ばかりした？<br><br><span style="font-size: 20px;">いいえ。<br>とはいえ、花子が楽しめる範囲での自慢話は<br>あったかもしれませんね。</span></h1>
+    <button class="back-button" onclick="goBackFromWajuDetails3()">戻る</button>
+</div>
+
+<div class="container" id="wajuDetails4" style="display: none;">
+    <h1>太郎は仕事の話ばかりした？<br><br><span style="font-size: 20px;">いいえ。<br>さまざまな話題を織り交ぜていました。</span></h1>
+    <button class="back-button" onclick="goBackFromWajuDetails4()">戻る</button>
+</div>
+
+<div class="container" id="wajuDetails5" style="display: none;">
+    <h1>太郎は愚痴ばかりこぼした？<br><br><span style="font-size: 20px;">いいえ。<br>マイナスな話は全くしなかったようです。</span></h1>
+    <button class="back-button" onclick="goBackFromWajuDetails5()">戻る</button>
+</div>
+
+
+
+<div class="container" id="kaikei-info" style="display: none;">
+    <h1>会計は、、、</h1>
+    <button class="button" onclick="showKaikeiDetails1()">ぼったくり</button><br>
+    <button class="button" onclick="showKaikeiDetails2()">別会計</button><br>
+    <button class="button" onclick="showKaikeiDetails3()">現金</button><br>
+    <button class="button" onclick="showKaikeiDetails4()">手間取った</button><br>
+    <button class="button" onclick="showKaikeiDetails5()">セルフサービス</button><br>
+    <button class="back-button" onclick="goBack()">戻る</button>
+</div>
+
+<div class="container" id="kaikeiDetails1" style="display: none;">
+    <h1>会計はぼったくりだった？<br><br><span style="font-size: 20px;">いいえ。<br>高額だったようですが、決してぼったくりではありません。</span></h1>
+    <button class="back-button" onclick="goBackFromKaikeiDetails1()">戻る</button>
+</div>
+
+<div class="container" id="kaikeiDetails2" style="display: none;">
+    <h1>会計は別会計だった？<br><br><span style="font-size: 20px;">いいえ。<br>太郎がまとめて払いました。</span></h1>
+    <button class="back-button" onclick="goBackFromKaikeiDetails2()">戻る</button>
+</div>
+
+<div class="container" id="kaikeiDetails3" style="display: none;">
+    <h1>会計は現金で払った？<br><br><span style="font-size: 20px;">いいえ。<br>カードで払ったようです。</span></h1>
+    <button class="back-button" onclick="goBackFromKaikeiDetails3()">戻る</button>
+</div>
+
+<div class="container" id="kaikeiDetails4" style="display: none;">
+    <h1>太郎は会計に手間取った？<br><br><span style="color: orange; font-size: 40px;">良い質問です。</span><br><span style="font-size: 20px;">はい。</span><span style="font-size: 20px;">テーブル会計だったようですが、<br>慣れていなかったのでしょうか。</span></h1>
+    <button class="back-button" onclick="goBackFromKaikeiDetails4()">戻る</button>
+</div>
+
+<div class="container" id="kaikeiDetails5" style="display: none;">
+    <h1>会計はセルフサービスだった？<br><br><span style="font-size: 20px;">いいえ。<br>さすがに高級レストランで自動精算機はないでしょうね。</span></h1>
+    <button class="back-button" onclick="goBackFromKaikeiDetails5()">戻る</button>
+</div>
+
+
+
+<div class="container" id="date-info" style="display: none;">
+    <h1>デートは、、、</h1>
+    <button class="button" onclick="showDateDetails1()">遅刻</button><br>
+    <button class="button" onclick="showDateDetails2()">平日</button><br>
+    <button class="button" onclick="showDateDetails3()">スムーズ</button><br>
+    <button class="button" onclick="showDateDetails4()">深夜</button><br>
+    <button class="button" onclick="showDateDetails5()">２人きり</button><br>
+    <button class="back-button" onclick="goBack()">戻る</button>
+</div>
+
+<div class="container" id="dateDetails1" style="display: none;">
+    <h1>誰かがデートに遅刻した？<br><br><span style="font-size: 20px;">いいえ。<br>太郎は予定通りに花子の家に到着し、<br>花子も同時刻に家に居ました。</span></h1>
+    <button class="back-button" onclick="goBackFromDateDetails1()">戻る</button>
+</div>
+
+<div class="container" id="dateDetails2" style="display: none;">
+    <h1>デートは平日だった？<br><br><span style="font-size: 20px;">いいえ。<br>お互いの休日に行ったようです。</span></h1>
+    <button class="back-button" onclick="goBackFromDateDetails2()">戻る</button>
+</div>
+
+<div class="container" id="dateDetails3" style="display: none;">
+    <h1>デートはスムーズだった？<br><br><span style="font-size: 20px;">はい。<br>予定通りに進みました。そう、レストランを出るまでは、、、</span></h1>
+    <button class="back-button" onclick="goBackFromDateDetails3()">戻る</button>
+</div>
+
+<div class="container" id="dateDetails4" style="display: none;">
+    <h1>デートは深夜だった？<br><br><span style="font-size: 20px;">いいえ。<br>ディナーにふさわしい時間でした。</span></h1>
+    <button class="back-button" onclick="goBackFromDateDetails4()">戻る</button>
+</div>
+
+<div class="container" id="dateDetails5" style="display: none;">
+    <h1>デートは２人きりだった？<br><br><span style="font-size: 20px;">はい。<br>終始２人で過ごしました。</span></h1>
+    <button class="back-button" onclick="goBackFromDateDetails5()">戻る</button>
+</div>
+
+
+
+<div class="container" id="aru-info" style="display: none;">
+    <h1>”あるもの”は、、、</h1>
+    <button class="button" onclick="showAruDetails1()">光る</button><br>
+    <button class="button" onclick="showAruDetails2()">空</button><br>
+    <button class="button" onclick="showAruDetails3()">動く</button><br>
+    <button class="button" onclick="showAruDetails4()">非常に大きい</button><br>
+    <button class="button" onclick="showAruDetails5()">駐車場</button><br>
+    <button class="back-button" onclick="goBack()">戻る</button>
+</div>
+
+<div class="container" id="aruDetails1" style="display: none;">
+    <h1>”あるもの”は光っていた？<br><br><span style="font-size: 20px;">いいえ。<br>光るものではないようです。</span></h1>
+    <button class="back-button" onclick="goBackFromAruDetails1()">戻る</button>
+</div>
+
+<div class="container" id="aruDetails2" style="display: none;">
+    <h1>”あるもの”は空にあった？<br><br><span style="font-size: 20px;">いいえ。</span></h1>
+    <button class="back-button" onclick="goBackFromAruDetails2()">戻る</button>
+</div>
+
+<div class="container" id="aruDetails3" style="display: none;">
+    <h1>”あるもの”は動いていた？<br><br><span style="font-size: 20px;">いいえ。<br>動くものではないようです。</span></h1>
+    <button class="back-button" onclick="goBackFromAruDetails3()">戻る</button>
+</div>
+
+<div class="container" id="aruDetails4" style="display: none;">
+    <h1>”あるもの”は非常に大きかった？<br><br><span style="font-size: 20px;">いいえ。<br>そこまで大きくはないようです。</span></h1>
+    <button class="back-button" onclick="goBackFromAruDetails4()">戻る</button>
+</div>
+
+<div class="container" id="aruDetails5" style="display: none;">
+    <h1>”あるもの”は駐車場にあった？<br><br><span style="color: red; font-size: 40px;">素晴らしい質問です。</span><br><span style="font-size: 20px;">はい。</span><span style="font-size: 20px;">花子は駐車場で”あるもの”を目にしました！</span></h1>
+    <button class="back-button" onclick="goBackFromAruDetails5()">戻る</button>
 </div>
 
 
@@ -413,10 +688,14 @@ let E = 0;
         const story = `<button class="button" onclick="showTaroInfo()">太郎</button>は<button class="button" onclick="showHanakoInfo()">花子</button>と
         豪華な<button class="button" onclick="showDinnerInfo()">ディナー</button>の予定だった。
         <button class="button" onclick="showTaroInfo()">太郎</button>はビシッと<button class="button" onclick="showSuitInfo()">スーツ</button>を着こなし、
-        高級車をブイブイ言わせて花子を迎えに行き、
-        エスコートして助手席に乗せた。<br>高級レストランでは巧みな話術で盛り上げ、会計は当然<button class="button" onclick="showTaroInfo()">太郎</button>の奢り。
-        誰もが完璧な<button class="button" onclick="showDinnerInfo()">ディナー</button>デートになると思った。しかし、２人がレストランを出るや否や、<br>
-        あるものが<button class="button" onclick="showHanakoInfo()">花子</button>の目に入り、デートが台無しになってしまった。<br>それはいったいなに？`;
+        <button class="button" onclick="showCarInfo()">高級車</button>をブイブイ言わせて<button class="button" onclick="showHanakoInfo()">花子</button>を迎えに行き、
+        <button class="button" onclick="showEscortInfo()">エスコート</button>して<button class="button" onclick="showJoshuInfo()">助手席</button>に乗せた。
+        <br>高級<button class="button" onclick="showRestInfo()">レストラン</button>では巧みな<button class="button" onclick="showWajuInfo()">話術</button>で盛り上げ、
+        <button class="button" onclick="showKaikeiInfo()">会計</button>は当然<button class="button" onclick="showTaroInfo()">太郎</button>の奢り。
+        誰もが完璧な<button class="button" onclick="showDinnerInfo()">ディナー</button><button class="button" onclick="showDateInfo()">デート</button>になると思った。
+        しかし、２人が<button class="button" onclick="showRestInfo()">レストラン</button>を出るや否や、<br>
+        <button class="button" onclick="showAruInfo()">あるもの</button>が<button class="button" onclick="showHanakoInfo()">花子</button>の目に入り、
+        <button class="button" onclick="showDateInfo()">デート</button>が台無しになってしまった。<br>それはいったいなに？`;
         
         document.getElementById('story').innerHTML = story;
         document.getElementById('n-display').innerText = N; // N の値を表示
@@ -667,22 +946,259 @@ let E = 0;
 
 
 
-
-
-
-
-
     function showCarInfo() {
         document.getElementById('main-container').style.display = 'none';
         document.getElementById('car-info').style.display = 'block';
     }
 
-    function showCar1Details() {
+    function showCarDetails1() {
         document.getElementById('car-info').style.display = 'none';
-        document.getElementById('car1-info').style.display = 'block';
+        document.getElementById('carDetails1').style.display = 'block';
+    }
+
+    function showCarDetails2() {
+        document.getElementById('car-info').style.display = 'none';
+        document.getElementById('carDetails2').style.display = 'block';
+    }
+
+    function showCarDetails3() {
+        document.getElementById('car-info').style.display = 'none';
+        document.getElementById('carDetails3').style.display = 'block';
+    }
+
+    function showCarDetails4() {
+        document.getElementById('car-info').style.display = 'none';
+        document.getElementById('carDetails4').style.display = 'block';
+    }
+
+    function showCarDetails5() {
+        document.getElementById('car-info').style.display = 'none';
+        document.getElementById('carDetails5').style.display = 'block';
     }
 
 
+
+    function showEscortInfo() {
+        document.getElementById('main-container').style.display = 'none';
+        document.getElementById('escort-info').style.display = 'block';
+    }
+
+    function showEscortDetails1() {
+        document.getElementById('escort-info').style.display = 'none';
+        document.getElementById('escortDetails1').style.display = 'block';
+    }
+
+    function showEscortDetails2() {
+        document.getElementById('escort-info').style.display = 'none';
+        document.getElementById('escortDetails2').style.display = 'block';
+    }
+    
+    function showEscortDetails3() {
+        document.getElementById('escort-info').style.display = 'none';
+        document.getElementById('escortDetails3').style.display = 'block';
+    }
+
+    function showEscortDetails4() {
+        document.getElementById('escort-info').style.display = 'none';
+        document.getElementById('escortDetails4').style.display = 'block';
+    }
+
+    function showEscortDetails5() {
+        document.getElementById('escort-info').style.display = 'none';
+        document.getElementById('escortDetails5').style.display = 'block';
+    }
+
+
+
+    function showJoshuInfo() {
+        document.getElementById('main-container').style.display = 'none';
+        document.getElementById('joshu-info').style.display = 'block';
+    }
+
+    function showJoshuDetails1() {
+        document.getElementById('joshu-info').style.display = 'none';
+        document.getElementById('joshuDetails1').style.display = 'block';
+    }
+
+    function showJoshuDetails2() {
+        document.getElementById('joshu-info').style.display = 'none';
+        document.getElementById('joshuDetails2').style.display = 'block';
+    }
+
+    function showJoshuDetails3() {
+        document.getElementById('joshu-info').style.display = 'none';
+        document.getElementById('joshuDetails3').style.display = 'block';
+    }
+
+    function showJoshuDetails4() {
+        document.getElementById('joshu-info').style.display = 'none';
+        document.getElementById('joshuDetails4').style.display = 'block';
+    }
+
+    function showJoshuDetails5() {
+        document.getElementById('joshu-info').style.display = 'none';
+        document.getElementById('joshuDetails5').style.display = 'block';
+    }
+
+
+
+    function showRestInfo() {
+        document.getElementById('main-container').style.display = 'none';
+        document.getElementById('rest-info').style.display = 'block';
+    }
+
+    function showRestDetails1() {
+        document.getElementById('rest-info').style.display = 'none';
+        document.getElementById('restDetails1').style.display = 'block';
+    }
+
+    function showRestDetails2() {
+        document.getElementById('rest-info').style.display = 'none';
+        document.getElementById('restDetails2').style.display = 'block';
+    }
+
+    function showRestDetails3() {
+        document.getElementById('rest-info').style.display = 'none';
+        document.getElementById('restDetails3').style.display = 'block';
+    }
+
+    function showRestDetails4() {
+        document.getElementById('rest-info').style.display = 'none';
+        document.getElementById('restDetails4').style.display = 'block';
+    }
+
+    function showRestDetails5() {
+        document.getElementById('rest-info').style.display = 'none';
+        document.getElementById('restDetails5').style.display = 'block';
+    }
+
+
+
+    function showWajuInfo() {
+        document.getElementById('main-container').style.display = 'none';
+        document.getElementById('waju-info').style.display = 'block';
+    }
+
+    function showWajuDetails1() {
+        document.getElementById('waju-info').style.display = 'none';
+        document.getElementById('wajuDetails1').style.display = 'block';
+    }
+    
+    function showWajuDetails2() {
+        document.getElementById('waju-info').style.display = 'none';
+        document.getElementById('wajuDetails2').style.display = 'block';
+    }
+
+    function showWajuDetails3() {
+        document.getElementById('waju-info').style.display = 'none';
+        document.getElementById('wajuDetails3').style.display = 'block';
+    }
+
+    function showWajuDetails4() {
+        document.getElementById('waju-info').style.display = 'none';
+        document.getElementById('wajuDetails4').style.display = 'block';
+    }
+
+    function showWajuDetails5() {
+        document.getElementById('waju-info').style.display = 'none';
+        document.getElementById('wajuDetails5').style.display = 'block';
+    }
+
+
+
+    function showKaikeiInfo() {
+        document.getElementById('main-container').style.display = 'none';
+        document.getElementById('kaikei-info').style.display = 'block';
+    }
+
+    function showKaikeiDetails1() {
+        document.getElementById('kaikei-info').style.display = 'none';
+        document.getElementById('kaikeiDetails1').style.display = 'block';
+    }
+
+    function showKaikeiDetails2() {
+        document.getElementById('kaikei-info').style.display = 'none';
+        document.getElementById('kaikeiDetails2').style.display = 'block';
+    }
+
+    function showKaikeiDetails3() {
+        document.getElementById('kaikei-info').style.display = 'none';
+        document.getElementById('kaikeiDetails3').style.display = 'block';
+    }
+
+    function showKaikeiDetails4() {
+        document.getElementById('kaikei-info').style.display = 'none';
+        document.getElementById('kaikeiDetails4').style.display = 'block';
+    }
+
+    function showKaikeiDetails5() {
+        document.getElementById('kaikei-info').style.display = 'none';
+        document.getElementById('kaikeiDetails5').style.display = 'block';
+    }
+
+
+
+    function showDateInfo() {
+        document.getElementById('main-container').style.display = 'none';
+        document.getElementById('date-info').style.display = 'block';
+    }
+
+    function showDateDetails1() {
+        document.getElementById('date-info').style.display = 'none';
+        document.getElementById('dateDetails1').style.display = 'block';
+    }
+
+    function showDateDetails2() {
+        document.getElementById('date-info').style.display = 'none';
+        document.getElementById('dateDetails2').style.display = 'block';
+    }
+
+    function showDateDetails3() {
+        document.getElementById('date-info').style.display = 'none';
+        document.getElementById('dateDetails3').style.display = 'block';
+    }
+
+    function showDateDetails4() {
+        document.getElementById('date-info').style.display = 'none';
+        document.getElementById('dateDetails4').style.display = 'block';
+    }
+
+    function showDateDetails5() {
+        document.getElementById('date-info').style.display = 'none';
+        document.getElementById('dateDetails5').style.display = 'block';
+    }
+
+
+
+    function showAruInfo() {
+        document.getElementById('main-container').style.display = 'none';
+        document.getElementById('aru-info').style.display = 'block';
+    }
+
+    function showAruDetails1() {
+        document.getElementById('aru-info').style.display = 'none';
+        document.getElementById('aruDetails1').style.display = 'block';
+    }
+
+    function showAruDetails2() {
+        document.getElementById('aru-info').style.display = 'none';
+        document.getElementById('aruDetails2').style.display = 'block';
+    }
+
+    function showAruDetails3() {
+        document.getElementById('aru-info').style.display = 'none';
+        document.getElementById('aruDetails3').style.display = 'block';
+    }
+
+    function showAruDetails4() {
+        document.getElementById('aru-info').style.display = 'none';
+        document.getElementById('aruDetails4').style.display = 'block';
+    }
+
+    function showAruDetails5() {
+        document.getElementById('aru-info').style.display = 'none';
+        document.getElementById('aruDetails5').style.display = 'block';
+    }
 
 
 
@@ -863,15 +1379,259 @@ let E = 0;
 
 
 
-
-
-
-    function goBackToCar1Info() {
+    function goBackFromCarDetails1() {
         N += 1;
-        document.getElementById('car1-info').style.display = 'none';
+        document.getElementById('carDetails1').style.display = 'none';
         document.getElementById('car-info').style.display = 'block';
     }
 
+    function goBackFromCarDetails2() {
+        N += 1;
+        document.getElementById('carDetails2').style.display = 'none';
+        document.getElementById('car-info').style.display = 'block';
+    }
+
+    function goBackFromCarDetails3() {
+        N += 1;
+        document.getElementById('carDetails3').style.display = 'none';
+        document.getElementById('car-info').style.display = 'block';
+    }
+
+    function goBackFromCarDetails4() {
+        N += 1;
+        document.getElementById('carDetails4').style.display = 'none';
+        document.getElementById('car-info').style.display = 'block';
+    }
+
+    function goBackFromCarDetails5() {
+        N += 1;
+        document.getElementById('carDetails5').style.display = 'none';
+        document.getElementById('car-info').style.display = 'block';
+    }
+
+
+
+    function goBackFromEscortDetails1() {
+        N += 1;
+        document.getElementById('escortDetails1').style.display = 'none';
+        document.getElementById('escort-info').style.display = 'block';
+    }
+
+    function goBackFromEscortDetails2() {
+        N += 1;
+        document.getElementById('escortDetails2').style.display = 'none';
+        document.getElementById('escort-info').style.display = 'block';
+    }
+
+    function goBackFromEscortDetails3() {
+        N += 1;
+        document.getElementById('escortDetails3').style.display = 'none';
+        document.getElementById('escort-info').style.display = 'block';
+    }
+
+    function goBackFromEscortDetails4() {
+        N += 1;
+        document.getElementById('escortDetails4').style.display = 'none';
+        document.getElementById('escort-info').style.display = 'block';
+    }
+
+    function goBackFromEscortDetails5() {
+        N += 1;
+        document.getElementById('escortDetails5').style.display = 'none';
+        document.getElementById('escort-info').style.display = 'block';
+    }
+
+
+
+    function goBackFromJoshuDetails1() {
+        N += 1;
+        document.getElementById('joshuDetails1').style.display = 'none';
+        document.getElementById('joshu-info').style.display = 'block';
+    }
+
+    function goBackFromJoshuDetails2() {
+        N += 1;
+        document.getElementById('joshuDetails2').style.display = 'none';
+        document.getElementById('joshu-info').style.display = 'block';
+    }
+
+    function goBackFromJoshuDetails3() {
+        N += 1;
+        document.getElementById('joshuDetails3').style.display = 'none';
+        document.getElementById('joshu-info').style.display = 'block';
+    }
+
+    function goBackFromJoshuDetails4() {
+        N += 1;
+        document.getElementById('joshuDetails4').style.display = 'none';
+        document.getElementById('joshu-info').style.display = 'block';
+    }
+
+    function goBackFromJoshuDetails5() {
+        N += 1;
+        document.getElementById('joshuDetails5').style.display = 'none';
+        document.getElementById('joshu-info').style.display = 'block';
+    }
+
+
+
+    function goBackFromRestDetails1() {
+        N += 1;
+        document.getElementById('restDetails1').style.display = 'none';
+        document.getElementById('rest-info').style.display = 'block';
+    }
+
+    function goBackFromRestDetails2() {
+        N += 1;
+        document.getElementById('restDetails2').style.display = 'none';
+        document.getElementById('rest-info').style.display = 'block';
+    }
+
+    function goBackFromRestDetails3() {
+        N += 1;
+        document.getElementById('restDetails3').style.display = 'none';
+        document.getElementById('rest-info').style.display = 'block';
+    }
+
+    function goBackFromRestDetails4() {
+        N += 1;
+        document.getElementById('restDetails4').style.display = 'none';
+        document.getElementById('rest-info').style.display = 'block';
+    }
+
+    function goBackFromRestDetails5() {
+        N += 1;
+        document.getElementById('restDetails5').style.display = 'none';
+        document.getElementById('rest-info').style.display = 'block';
+    }
+
+
+
+    function goBackFromWajuDetails1() {
+        N += 1;
+        document.getElementById('wajuDetails1').style.display = 'none';
+        document.getElementById('waju-info').style.display = 'block';
+    }
+
+    function goBackFromWajuDetails2() {
+        N += 1;
+        document.getElementById('wajuDetails2').style.display = 'none';
+        document.getElementById('waju-info').style.display = 'block';
+    }
+
+    function goBackFromWajuDetails3() {
+        N += 1;
+        document.getElementById('wajuDetails3').style.display = 'none';
+        document.getElementById('waju-info').style.display = 'block';
+    }
+
+    function goBackFromWajuDetails4() {
+        N += 1;
+        document.getElementById('wajuDetails4').style.display = 'none';
+        document.getElementById('waju-info').style.display = 'block';
+    }
+
+    function goBackFromWajuDetails5() {
+        N += 1;
+        document.getElementById('wajuDetails5').style.display = 'none';
+        document.getElementById('waju-info').style.display = 'block';
+    }
+
+
+
+    function goBackFromKaikeiDetails1() {
+        N += 1;
+        document.getElementById('kaikeiDetails1').style.display = 'none';
+        document.getElementById('kaikei-info').style.display = 'block';
+    }
+
+    function goBackFromKaikeiDetails2() {
+        N += 1;
+        document.getElementById('kaikeiDetails2').style.display = 'none';
+        document.getElementById('kaikei-info').style.display = 'block';
+    }
+
+    function goBackFromKaikeiDetails3() {
+        N += 1;
+        document.getElementById('kaikeiDetails3').style.display = 'none';
+        document.getElementById('kaikei-info').style.display = 'block';
+    }
+
+    function goBackFromKaikeiDetails4() {
+        N += 1;
+        document.getElementById('kaikeiDetails4').style.display = 'none';
+        document.getElementById('kaikei-info').style.display = 'block';
+    }
+
+    function goBackFromKaikeiDetails5() {
+        N += 1;
+        document.getElementById('kaikeiDetails5').style.display = 'none';
+        document.getElementById('kaikei-info').style.display = 'block';
+    }
+
+
+
+    function goBackFromDateDetails1() {
+        N += 1;
+        document.getElementById('dateDetails1').style.display = 'none';
+        document.getElementById('date-info').style.display = 'block';
+    }
+
+    function goBackFromDateDetails2() {
+        N += 1;
+        document.getElementById('dateDetails2').style.display = 'none';
+        document.getElementById('date-info').style.display = 'block';
+    }
+
+    function goBackFromDateDetails3() {
+        N += 1;
+        document.getElementById('dateDetails3').style.display = 'none';
+        document.getElementById('date-info').style.display = 'block';
+    }
+
+    function goBackFromDateDetails4() {
+        N += 1;
+        document.getElementById('dateDetails4').style.display = 'none';
+        document.getElementById('date-info').style.display = 'block';
+    }
+
+    function goBackFromDateDetails5() {
+        N += 1;
+        document.getElementById('dateDetails5').style.display = 'none';
+        document.getElementById('date-info').style.display = 'block';
+    }
+
+
+
+    function goBackFromAruDetails1() {
+        N += 1;
+        document.getElementById('aruDetails1').style.display = 'none';
+        document.getElementById('aru-info').style.display = 'block';
+    }
+
+    function goBackFromAruDetails2() {
+        N += 1;
+        document.getElementById('aruDetails2').style.display = 'none';
+        document.getElementById('aru-info').style.display = 'block';
+    }
+
+    function goBackFromAruDetails3() {
+        N += 1;
+        document.getElementById('aruDetails3').style.display = 'none';
+        document.getElementById('aru-info').style.display = 'block';
+    }
+
+    function goBackFromAruDetails4() {
+        N += 1;
+        document.getElementById('aruDetails4').style.display = 'none';
+        document.getElementById('aru-info').style.display = 'block';
+    }
+
+    function goBackFromAruDetails5() {
+        N += 1;
+        document.getElementById('aruDetails5').style.display = 'none';
+        document.getElementById('aru-info').style.display = 'block';
+    }
 
 
 
@@ -885,12 +1645,16 @@ let E = 0;
         document.getElementById('hanako-info').style.display = 'none';
         document.getElementById('dinner-info').style.display = 'none';
         document.getElementById('suit-info').style.display = 'none';
-
-
         document.getElementById('car-info').style.display = 'none';
+        document.getElementById('escort-info').style.display = 'none';
+        document.getElementById('joshu-info').style.display = 'none';
+        document.getElementById('rest-info').style.display = 'none';
+        document.getElementById('waju-info').style.display = 'none';
+        document.getElementById('kaikei-info').style.display = 'none';
+        document.getElementById('date-info').style.display = 'none';
+        document.getElementById('aru-info').style.display = 'none';
         document.getElementById('main-container').style.display = 'block';
     }
-
 
 
 
@@ -904,7 +1668,7 @@ let E = 0;
         document.getElementById('wrong-button').style.display = 'none'; // 更新ボタンを隠す
         document.getElementById('story').innerHTML = ''; // ストーリーをクリア
     }
-</script>
 
+</script>
 </body>
 </html>
